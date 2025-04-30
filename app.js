@@ -1,20 +1,20 @@
 // Inicializar EmailJS
 emailjs.init("8gBv4LP3v5BmBPRnI");
 
-// Botão de download via MediaFire
+// Botão de download direto do arquivo ZIP (funciona no GitHub Pages)
 document.getElementById('downloadBtn').addEventListener('click', () => {
-  window.open("https://www.mediafire.com/file/67er1sgh6w26537/geradordesenha_MBS_Technology.exe/file", "_blank");
+  window.location.href = "geradordesenha_MBS_Technology.zip"; // Renomeie seu .exe para .zip e envie para o GitHub
 });
 
-// Função para copiar código Pix
+// Função para copiar o código Pix para a área de transferência
 function copyPixCode() {
   const pixInput = document.getElementById("pixCode");
   navigator.clipboard.writeText(pixInput.value)
-    .then(() => alert("Código Pix copiado!"))
-    .catch(() => alert("Erro ao copiar código Pix."));
+    .then(() => alert("✅ Código Pix copiado!"))
+    .catch(() => alert("❌ Erro ao copiar código Pix."));
 }
 
-// Gera um código de ativação aleatório
+// Função que gera um código de ativação aleatório
 function generateActivationCode() {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let code = "";
@@ -24,13 +24,13 @@ function generateActivationCode() {
   return code;
 }
 
-// Exibe o código na tela
+// Função que exibe o código de ativação na tela
 function showActivationCode(code) {
   document.getElementById("code").innerText = code;
   document.getElementById("activationCode").style.display = "block";
 }
 
-// Envio do comprovante + exibição do código de ativação
+// Evento de envio do formulário de comprovante
 document.getElementById("comprovanteForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
