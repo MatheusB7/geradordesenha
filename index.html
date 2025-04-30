@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baixar o App e Realizar Pagamento</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* Estilo para o botão roxo com texto branco */
+    .nubank-link a {
+      display: inline-block;
+      background-color: #8e44ad; /* Cor roxa */
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .nubank-link a:hover {
+      background-color: #732d91; /* Cor roxa mais escura no hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MBS Technology</h1>
+    <p>Obtenha o nosso aplicativo e comece a usar agora!</p>
+
+    <!-- Botão de Download do App -->
+    <button id="downloadBtn">Baixar App</button>
+
+    <h2>Escolha uma Forma de Pagamento</h2>
+
+    <!-- Formulário de Pagamento com Cartão -->
+    <form id="paymentForm">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" placeholder="Digite seu e-mail" required/>
+
+      <label for="cardInfo">Informações do Cartão:</label>
+      <div id="card-element"></div>
+
+      <button type="submit" id="payBtn">Pagar com Cartão</button>
+    </form>
+
+    <h3>Pagamento via Pix</h3>
+    <div class="pix-container">
+
+        <!-- QR Code -->
+        <img src="qrcode_pix.jpg" alt="QR Code Pix" class="pix-qr" />
+
+        <!-- Copiar código Pix -->
+        <p>Clique abaixo para copiar o código Pix:</p>
+        <input type="text" value="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23" id="pixCode" readonly />
+        <button onclick="copyPixCode()">Copiar Código PIX</button>
+    </div>
+
+    <!-- Link direto com botão roxo do Nubank -->
+    <p class="nubank-link">
+        <a href="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23"
+           target="_blank">
+          Abrir pix no app Nubank
+        </a>
+    </p>
+  </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="app.js"></script>
+  <script>
+    function copyPixCode() {
+      const pixInput = document.getElementById("pixCode");
+      pixInput.select();
+      pixInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+      document.execCommand("copy");
+      alert("Código Pix copiado!");
+    }
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      window.location.href = "geradordesenha.exe"; // Substitua com o link real
+    });
+  </script>
+</body>
+</html>
