@@ -1,4 +1,3 @@
-// Envio do comprovante
 document.getElementById("comprovanteForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
