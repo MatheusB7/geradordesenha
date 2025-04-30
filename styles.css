@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box; /* Garante que padding e border não afetem a largura total */
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -45,7 +49,10 @@ h1 {
 .qr-code {
   margin-left: 20px; /* Adiciona 20px de margem à esquerda */
   margin-top: 10px; /* Adiciona 10px de margem superior (opcional) */
-  width: 200px; /* Define a largura da imagem */
+  width: 100%; /* A imagem vai ocupar toda a largura disponível */
+  max-width: 200px; /* Limita a largura máxima da imagem */
+  display: block;
+  margin: 0 auto;
 }
 
 .pix-key {
@@ -96,4 +103,23 @@ footer {
   text-align: center;
   font-size: 0.8em;
   color: #666;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 20px; /* Margem reduzida para dispositivos móveis */
+    padding: 20px; /* Padding reduzido para dispositivos móveis */
+  }
+
+  h1 {
+    font-size: 1.5em; /* Ajusta o tamanho da fonte do título para dispositivos móveis */
+  }
+
+  .subtitulo {
+    font-size: 0.8em;
+  }
+
+  .premium-box {
+    margin-bottom: 15px; /* Reduz a margem inferior da caixa premium */
+  }
 }
