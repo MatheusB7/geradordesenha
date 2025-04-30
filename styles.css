@@ -1,105 +1,61 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 320px;
-}
-
-h1, h2 {
-    text-align: center;
+    background: #f4f4f4;
     color: #333;
-}
-
-button {
+    padding: 20px;
+  }
+  
+  .container {
+    background: #fff;
+    padding: 30px;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2, h3 {
+    color: #2c3e50;
+  }
+  
+  .pix-container {
+    margin: 20px 0;
+  }
+  
+  .pix-qr {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="file"] {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    margin: 6px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #27ae60;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-label {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input {
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-#card-element {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.pix-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.pix-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-  
-  .nubank-link {
-    text-align: center;
-    margin-top: 15px;
   }
   
-  .nubank-link a {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
+  button:hover {
+    background-color: #219150;
   }
   
-  .nubank-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-  }  
-
-.pix-qr {
-    display: block;
-    margin: 20px auto;
-    max-width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  .activation-code {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    display: none;
   }
   
