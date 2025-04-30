@@ -1,9 +1,9 @@
 // Inicializar EmailJS
 emailjs.init("8gBv4LP3v5BmBPRnI");
 
-// Botão de download
+// Botão de download via MediaFire
 document.getElementById('downloadBtn').addEventListener('click', () => {
-  window.location.href = "geradordesenha_MBS_Technology.exe";
+  window.open("https://www.mediafire.com/file/67er1sgh6w26537/geradordesenha_MBS_Technology.exe/file", "_blank");
 });
 
 // Função para copiar código Pix
