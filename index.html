@@ -2,134 +2,43 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Gerador de Senha - MBS Technology</title>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-      background-color: #f5f5f5;
-    }
-    img {
-      width: 200px;
-      margin-bottom: 20px;
-    }
-    input, button {
-      padding: 10px;
-      margin: 10px;
-      font-size: 16px;
-    }
-    #activationCode {
-      display: none;
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 20px;
-      color: green;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Desenhos MBS Technology</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
+  <div class="container">
+    <img src="geradordesenha_MBS_Technology.png" alt="MBS Technology Logo" class="logo">
+    <h1>Gerador de Desenhos MBS Technology</h1>
+    <p class="subtitulo">Baixe o aplicativo e gere códigos de ativação</p>
 
-  <!-- Logo da empresa -->
-  <img src="geradordesenha_MBS_Technology.png" alt="Logo MBS Technology">
+    <button id="downloadBtn">Baixar o App</button>
 
-  <h1>Gerador de Senha - MBS Technology</h1>
+    <div class="premium-box">
+      <p><strong>Código Pix:</strong></p>
+      <input type="text" id="pixCode" value="1234 5678 9101 1121" readonly>
+      <button onclick="copyPixCode()">Copiar Código Pix</button>
+    </div>
 
-  <!-- Botão de download -->
-  <button id="downloadBtn">📥 Baixar Gerador de Senha</button>
+    <div class="premium-box">
+      <form id="receiptForm">
+        <input type="email" id="userEmail" placeholder="Digite seu e-mail" required>
+        <input type="file" id="receiptFile" accept="image/*" required>
+        <button type="submit">Enviar Comprovante</button>
+      </form>
 
-  <hr style="margin: 30px 0;">
+      <div id="activationCode" style="display: none;">
+        <h3>Código de Ativação:</h3>
+        <p id="code"></p>
+      </div>
+    </div>
 
-  <!-- Campo do Pix -->
-  <h2>Pagamento via Pix</h2>
-  <input type="text" id="pixCode" value="chavepix@mbstechnology.com.br" readonly>
-  <button onclick="copyPixCode()">📋 Copiar Código Pix</button>
-
-  <hr style="margin: 30px 0;">
-
-  <!-- Envio do comprovante -->
-  <h2>Envie o comprovante para ativação</h2>
-  <form id="receiptForm">
-    <input type="email" id="userEmail" placeholder="Seu Email" required><br>
-    <input type="file" id="receiptFile" accept="image/*,.pdf" required><br>
-    <button type="submit">📤 Enviar Comprovante</button>
-  </form>
-
-  <!-- Código de ativação -->
-  <div id="activationCode">
-    Código de Ativação: <span id="code"></span>
+    <footer>
+      <p>&copy; 2025 MBS Technology. Todos os direitos reservados.</p>
+    </footer>
   </div>
 
-  <script>
-    // Inicializar EmailJS
-    emailjs.init("8gBv4LP3v5BmBPRnI");
-
-    // Botão de download do app via MediaFire
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-      window.open("https://www.mediafire.com/file/67er1sgh6w26537/geradordesenha_MBS_Technology.exe/file", "_blank");
-    });
-
-    // Copiar código Pix
-    function copyPixCode() {
-      const pixInput = document.getElementById("pixCode");
-      navigator.clipboard.writeText(pixInput.value)
-        .then(() => alert("✅ Código Pix copiado!"))
-        .catch(() => alert("❌ Erro ao copiar código Pix."));
-    }
-
-    // Gerar código de ativação aleatório
-    function generateActivationCode() {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let code = "";
-      for (let i = 0; i < 8; i++) {
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return code;
-    }
-
-    // Exibir o código de ativação na tela
-    function showActivationCode(code) {
-      document.getElementById("code").innerText = code;
-      document.getElementById("activationCode").style.display = "block";
-    }
-
-    // Envio do comprovante de pagamento
-    document.getElementById("receiptForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const email = document.getElementById("userEmail").value;
-      const file = document.getElementById("receiptFile").files[0];
-
-      if (!file) {
-        alert("⚠️ Selecione um comprovante!");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = function () {
-        const base64Comprovante = reader.result.split(",")[1];
-
-        const templateParams = {
-          email: email,
-          comprovante: base64Comprovante,
-          filename: file.name
-        };
-
-        emailjs.send("service_vft3aht", "template_1ktrtnp", templateParams)
-          .then(() => {
-            alert("✅ Comprovante enviado com sucesso!");
-            const code = generateActivationCode();
-            showActivationCode(code);
-            document.getElementById("receiptForm").reset();
-          })
-          .catch(() => {
-            alert("❌ Erro ao enviar o comprovante. Tente novamente.");
-          });
-      };
-
-      reader.readAsDataURL(file);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
