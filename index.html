@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MBS Gerador de Senhas</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -28,18 +28,25 @@
 
     <h2>Envie o comprovante de pagamento</h2>
     <form id="comprovanteForm">
-      <label for="nome">Seu Nome:</label>
-      <input type="text" id="nome" name="nome" required />
+      <div class="field">
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+      </div>
 
-      <label for="email">Seu E-mail:</label>
-      <input type="email" id="email" name="email" required />
+      <div class="field">
+        <label for="email">Seu E-mail:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
 
-      <label for="arquivo">Comprovante (imagem ou PDF):</label>
-      <input type="file" id="arquivo" name="arquivo" accept=".jpg,.jpeg,.png,.pdf" required />
+      <div class="field">
+        <label for="arquivo">Comprovante (imagem ou PDF):</label>
+        <input type="file" id="arquivo" name="arquivo" accept=".jpg,.jpeg,.png,.pdf" required />
+      </div>
 
-      <button type="submit">📤 Enviar Comprovante</button>
+      <input type="submit" id="submitButton" value="📤 Enviar Comprovante" />
     </form>
 
+    <div id="loading" class="loading"></div>
     <p id="mensagem" class="mensagem-status"></p>
 
     <footer>
