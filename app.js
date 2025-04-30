@@ -1,5 +1,5 @@
 // Inicializar EmailJS
-emailjs.init("8gBv4LP3v5BmBPRnI"); // Substitua pela sua Public Key real, se necessário
+emailjs.init("8gBv4LP3v5BmBPRnI");
 
 // Botão de download - redireciona para o arquivo .zip
 document.getElementById('downloadBtn').addEventListener('click', () => {
@@ -10,8 +10,8 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 function copyPixCode() {
   const pixInput = document.getElementById("pixCode");
   navigator.clipboard.writeText(pixInput.value)
-    .then(() => alert("Código Pix copiado!"))
-    .catch(() => alert("Erro ao copiar código Pix."));
+    .then(() => alert("✅ Código Pix copiado!"))
+    .catch(() => alert("❌ Erro ao copiar código Pix."));
 }
 
 // Função para gerar um código de ativação aleatório
