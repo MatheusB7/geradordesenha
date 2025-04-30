@@ -1,55 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MBS Technology - Pagamento</title>
+  <title>MBS Gerador de Senhas</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>MBS Technology</h1>
-    <p>Obtenha o nosso aplicativo e comece a usar agora!</p>
+    <img src="logo.png" alt="Logo MBS" class="logo"/>
+    <h1>Gerador de Senhas Seguras</h1>
+    <h2 class="subtitulo">Tecnologia com segurança — MBS Technology</h2>
 
-    <button id="downloadBtn">Baixar App</button>
-
-    <h2>Escolha uma Forma de Pagamento</h2>
-
-    <h3>Pagamento via Pix</h3>
-    <div class="pix-container">
-      <img src="qrcode_pix.jpg" alt="QR Code Pix" class="pix-qr" />
-      <p>Clique abaixo para copiar o código Pix:</p>
-      <input type="text" value="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23" id="pixCode" readonly />
-      <button onclick="copyPixCode()">Copiar Código PIX</button>
+    <div class="premium-box">
+      <h3>💎 Versão Premium - R$ 9,90/mês</h3>
+      <p>
+        ➤ Geração de senhas com até 20 caracteres<br/>
+        ➤ Inclui símbolos, letras maiúsculas e segurança extra<br/>
+        ➤ Receba um código de ativação mensal exclusivo
+      </p>
     </div>
 
-    <p class="nubank-link">
-      <a href="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23" target="_blank">
-        Abrir pix no app Nubank
-      </a>
-    </p>
+    <h2>Pagamento via PIX</h2>
+    <img src="pix-qr-code.png" alt="QR Code PIX" class="qr-code" />
+    <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
-    <h3>Anexar Comprovante de Pagamento</h3>
-    <form id="receiptForm">
-      <label for="email">Seu e-mail:</label>
-      <input type="email" id="userEmail" name="user_email" placeholder="Digite seu e-mail" required />
+    <h2>Envie o comprovante de pagamento</h2>
+    <form id="comprovanteForm">
+      <label for="nome">Seu Nome:</label>
+      <input type="text" id="nome" name="nome" required />
 
-      <label for="receiptFile">Comprovante (PNG, JPG, PDF):</label>
-      <input type="file" id="receiptFile" name="receiptFile" accept=".png,.jpg,.jpeg,.pdf" required />
+      <label for="email">Seu E-mail:</label>
+      <input type="email" id="email" name="email" required />
 
-      <button type="submit">Enviar Comprovante</button>
+      <label for="arquivo">Comprovante (imagem ou PDF):</label>
+      <input type="file" id="arquivo" name="arquivo" accept=".jpg,.jpeg,.png,.pdf" required />
+
+      <button type="submit">📤 Enviar Comprovante</button>
     </form>
 
-    <div id="activationCode" class="activation-code">
-      Seu código de ativação: <span id="code"></span>
-    </div>
-  </div>
+    <p id="mensagem" class="mensagem-status"></p>
 
-  <!-- EmailJS -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    emailjs.init("8gBv4LP3v5BmBPRnI"); // Public Key
-  </script>
+    <footer>
+      <p>© 2025 Direitos Autorais: Matheus Barbosa da Silva - MBS Technology</p>
+    </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
