@@ -3,207 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baixar o App e Realizar Pagamento</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      background: white;
-      padding: 30px;
-      max-width: 600px;
-      margin: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1, h2, h3 {
-      text-align: center;
-    }
-
-    input[type="email"],
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      display: inline-block;
-      background-color: #3498db;
-      color: white;
-      padding: 12px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    .pix-container {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .pix-qr {
-      max-width: 200px;
-      margin-bottom: 10px;
-    }
-
-    .nubank-link a {
-      display: inline-block;
-      background-color: #8e44ad;
-      color: white;
-      padding: 12px 20px;
-      font-size: 16px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .nubank-link a:hover {
-      background-color: #732d91;
-    }
-
-    .activation-code {
-      display: none;
-      background-color: #28a745;
-      color: white;
-      padding: 10px;
-      margin-top: 20px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-
-    #card-element {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 15px;
-    }
-  </style>
+  <title>MBS Technology - Pagamento</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
     <h1>MBS Technology</h1>
     <p>Obtenha o nosso aplicativo e comece a usar agora!</p>
 
-    <!-- Botão de Download do App -->
     <button id="downloadBtn">Baixar App</button>
 
     <h2>Escolha uma Forma de Pagamento</h2>
-
-    <!-- Formulário de Pagamento com Cartão -->
-    <form id="paymentForm">
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" placeholder="Digite seu e-mail" required/>
-
-      <label for="cardInfo">Informações do Cartão:</label>
-      <div id="card-element"></div>
-
-      <button type="submit" id="payBtn">Pagar com Cartão</button>
-    </form>
 
     <h3>Pagamento via Pix</h3>
     <div class="pix-container">
       <img src="qrcode_pix.jpg" alt="QR Code Pix" class="pix-qr" />
       <p>Clique abaixo para copiar o código Pix:</p>
       <input type="text" value="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23" id="pixCode" readonly />
-      <br><br>
       <button onclick="copyPixCode()">Copiar Código PIX</button>
     </div>
 
-    <!-- Link direto com botão roxo do Nubank -->
     <p class="nubank-link">
       <a href="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23" target="_blank">
-        Abrir Pix no app Nubank
+        Abrir pix no app Nubank
       </a>
     </p>
 
-    <!-- Código de Ativação -->
+    <h3>Anexar Comprovante de Pagamento</h3>
+    <form id="receiptForm">
+      <label for="email">Seu e-mail:</label>
+      <input type="email" id="userEmail" name="user_email" placeholder="Digite seu e-mail" required />
+
+      <label for="receiptFile">Comprovante (PNG, JPG, PDF):</label>
+      <input type="file" id="receiptFile" name="receiptFile" accept=".png,.jpg,.jpeg,.pdf" required />
+
+      <button type="submit">Enviar Comprovante</button>
+    </form>
+
     <div id="activationCode" class="activation-code">
       Seu código de ativação: <span id="code"></span>
     </div>
   </div>
 
-  <!-- Stripe e JS -->
-  <script src="https://js.stripe.com/v3/"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    function copyPixCode() {
-      const pixInput = document.getElementById("pixCode");
-      pixInput.select();
-      pixInput.setSelectionRange(0, 99999); // Suporte a mobile
-      document.execCommand("copy");
-      alert("Código Pix copiado!");
-    }
-
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-      window.location.href = "geradordesenha.exe"; // Substitua com seu link real
-    });
-
-    function generateActivationCode() {
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let code = '';
-      for (let i = 0; i < 8; i++) {
-        code += characters.charAt(Math.floor(Math.random() * characters.length));
-      }
-      return code;
-    }
-
-    function showActivationCode() {
-      const activationCode = generateActivationCode();
-      document.getElementById('code').innerText = activationCode;
-      document.getElementById('activationCode').style.display = 'block';
-    }
-
-    // Stripe
-    const stripe = Stripe('pk_test_TuA7Dq7UqOdcHZh7CxxS0Tgf00AXkjHVRp');
-    const elements = stripe.elements();
-    const cardElement = elements.create('card');
-    cardElement.mount('#card-element');
-
-    const paymentForm = document.getElementById('paymentForm');
-    paymentForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      const { token, error } = await stripe.createToken(cardElement);
-      if (error) {
-        alert("Erro ao processar o pagamento: " + error.message);
-      } else {
-        const response = await fetch('/process_payment', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            token: token.id,
-            email: document.getElementById('email').value
-          })
-        });
-
-        const result = await response.json();
-        if (result.success) {
-          alert('Pagamento realizado com sucesso!');
-          showActivationCode();
-        } else {
-          alert('Erro no pagamento. Tente novamente.');
-        }
-      }
-    });
+    emailjs.init("8gBv4LP3v5BmBPRnI"); // Public Key
   </script>
+
+  <script src="app.js"></script>
 </body>
 </html>
