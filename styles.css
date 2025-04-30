@@ -11,18 +11,20 @@ body {
   background-color: #1b1e25;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 0 20px #00f5c4;
+  box-shadow: 0 0 20px #00e1ff;
 }
 
 .logo {
-  width: 100px;
-  display: block;
-  margin: 0 auto 10px;
+  width: 150px; /* Define a largura da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  display: block; /* Exibe a imagem como um bloco (ajuda no alinhamento) */
+  margin: 0 auto 10px; /* Alinha a imagem ao centro e dá uma margem inferior */
+  border-radius: 50%; /* Deixa a imagem totalmente arredondada (circular) */
 }
 
 h1 {
   text-align: center;
-  color: #00f5c4;
+  color: #00e1ff;
 }
 
 .subtitulo {
@@ -33,7 +35,7 @@ h1 {
 }
 
 .premium-box {
-  border: 1px solid #00f5c4;
+  border: 1px solid #00e1ff;
   border-radius: 10px;
   padding: 15px;
   background-color: #21252b;
@@ -41,13 +43,14 @@ h1 {
 }
 
 .qr-code {
-  display: block;
-  margin: 10px auto;
-  width: 200px;
+  margin-left: 20px; /* Adiciona 20px de margem à esquerda */
+  margin-top: 10px; /* Adiciona 10px de margem superior (opcional) */
+  width: 200px; /* Define a largura da imagem */
 }
 
 .pix-key {
-  text-align: center;
+  color: #00e1ff;
+  text-align: left;
   font-size: 1.1em;
   margin-bottom: 25px;
 }
@@ -70,7 +73,7 @@ input[type="file"] {
 
 button {
   padding: 12px;
-  background-color: #00f5c4;
+  background-color: #00e1ff;
   color: #000;
   font-weight: bold;
   border: none;
@@ -80,7 +83,7 @@ button {
 }
 
 button:hover {
-  background-color: #00bfa1;
+  background-color: #00e1ff;
 }
 
 .mensagem-status {
