@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerador de Desenhos MBS Technology</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBS Gerador de Senhas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <img src="geradordesenha_MBS_Technology.png" alt="MBS Technology Logo" class="logo">
-    <h1>Gerador de Desenhos MBS Technology</h1>
-    <p class="subtitulo">Baixe o aplicativo e gere códigos de ativação</p>
-
-    <button id="downloadBtn">Baixar o App</button>
+    <img src="geradordesenha_MBS_Technology.png" alt="Logo MBS" class="logo"/>
+    <h1>Gerador de Senhas Seguras</h1>
+    <h2 class="subtitulo">Tecnologia com segurança — MBS Technology</h2>
 
     <div class="premium-box">
-      <p><strong>Código Pix:</strong></p>
-      <input type="text" id="pixCode" value="1234 5678 9101 1121" readonly>
-      <button onclick="copyPixCode()">Copiar Código Pix</button>
+      <h3>💎 Versão Premium - R$ 9,90/mês</h3>
+      <p>
+        ➤ Geração de senhas com até 20 caracteres<br/>
+        ➤ Inclui símbolos, letras maiúsculas e segurança extra<br/>
+        ➤ Receba um código de ativação mensal exclusivo
+      </p>
     </div>
 
-    <div class="premium-box">
-      <form id="receiptForm">
-        <input type="email" id="userEmail" placeholder="Digite seu e-mail" required>
-        <input type="file" id="receiptFile" accept="image/*" required>
-        <button type="submit">Enviar Comprovante</button>
-      </form>
+    <h2>Pagamento via PIX</h2>
+    <img src="qrcode_pix.jpg" alt="QR Code PIX" class="qr-code" />
+    <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
-      <div id="activationCode" style="display: none;">
-        <h3>Código de Ativação:</h3>
-        <p id="code"></p>
-      </div>
-    </div>
+    <h2>Envie o comprovante de pagamento</h2>
+    <form id="comprovanteForm">
+      <label for="nome">Seu Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">Seu E-mail:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="arquivo">Comprovante (imagem ou PDF):</label>
+      <input type="file" id="arquivo" name="arquivo" accept=".jpg,.jpeg,.png,.pdf" required />
+
+      <button type="submit">📤 Enviar Comprovante</button>
+    </form>
+
+    <p id="mensagem" class="mensagem-status"></p>
 
     <footer>
-      <p>&copy; 2025 MBS Technology. Todos os direitos reservados.</p>
+      <p>© 2025 Direitos Autorais: Matheus Barbosa da Silva - MBS Technology</p>
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
