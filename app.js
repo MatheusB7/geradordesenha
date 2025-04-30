@@ -1,20 +1,20 @@
 // Inicializar EmailJS
-emailjs.init("8gBv4LP3v5BmBPRnI");
+emailjs.init("8gBv4LP3v5BmBPRnI"); // Substitua pela sua Public Key real, se necessário
 
-// Botão de download direto do arquivo ZIP (funciona no GitHub Pages)
+// Botão de download - redireciona para o arquivo .zip
 document.getElementById('downloadBtn').addEventListener('click', () => {
-  window.location.href = "geradordesenha_MBS_Technology.zip"; // Renomeie seu .exe para .zip e envie para o GitHub
+  window.location.href = "geradordesenha_MBS_Technology.zip"; // Certifique-se de que esse .zip está no mesmo diretório do index.html
 });
 
-// Função para copiar o código Pix para a área de transferência
+// Função para copiar código Pix
 function copyPixCode() {
   const pixInput = document.getElementById("pixCode");
   navigator.clipboard.writeText(pixInput.value)
-    .then(() => alert("✅ Código Pix copiado!"))
-    .catch(() => alert("❌ Erro ao copiar código Pix."));
+    .then(() => alert("Código Pix copiado!"))
+    .catch(() => alert("Erro ao copiar código Pix."));
 }
 
-// Função que gera um código de ativação aleatório
+// Função para gerar um código de ativação aleatório
 function generateActivationCode() {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let code = "";
@@ -24,23 +24,21 @@ function generateActivationCode() {
   return code;
 }
 
-// Função que exibe o código de ativação na tela
+// Função para mostrar o código de ativação na tela
 function showActivationCode(code) {
   document.getElementById("code").innerText = code;
   document.getElementById("activationCode").style.display = "block";
 }
 
-// Evento de envio do formulário de comprovante
-document.getElementById("comprovanteForm").addEventListener("submit", function (e) {
+// Envio do comprovante via EmailJS + exibição do código
+document.getElementById("receiptForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const arquivo = document.getElementById("arquivo").files[0];
-  const mensagemEl = document.getElementById("mensagem");
+  const email = document.getElementById("userEmail").value;
+  const arquivo = document.getElementById("receiptFile").files[0];
 
   if (!arquivo) {
-    mensagemEl.textContent = "⚠️ Selecione um comprovante!";
+    alert("⚠️ Selecione um arquivo de comprovante!");
     return;
   }
 
@@ -49,22 +47,20 @@ document.getElementById("comprovanteForm").addEventListener("submit", function (
     const base64Comprovante = reader.result.split(",")[1];
 
     const templateParams = {
-      nome: nome,
-      email: email,
+      user_email: email,
       comprovante: base64Comprovante,
       filename: arquivo.name
     };
 
-    emailjs
-      .send("service_vft3aht", "template_1ktrtnp", templateParams)
+    emailjs.send("service_vft3aht", "template_1ktrtnp", templateParams)
       .then(() => {
-        mensagemEl.textContent = "✅ Comprovante enviado com sucesso!";
+        alert("✅ Comprovante enviado com sucesso!");
         const code = generateActivationCode();
         showActivationCode(code);
-        document.getElementById("comprovanteForm").reset();
+        document.getElementById("receiptForm").reset();
       })
       .catch(() => {
-        mensagemEl.textContent = "❌ Erro ao enviar o comprovante. Tente novamente.";
+        alert("❌ Erro ao enviar o comprovante. Tente novamente.");
       });
   };
 
