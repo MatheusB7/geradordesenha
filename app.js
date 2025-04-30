@@ -2,7 +2,7 @@
 
 // Botão de download
 document.getElementById('downloadBtn').addEventListener('click', () => {
-    window.location.href = "geradordesenha.exe";
+    window.location.href = "geradordesenha_MBS_Technology.exe";
   });
   
   // Copiar código Pix
