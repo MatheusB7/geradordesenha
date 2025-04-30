@@ -1,23 +1,4 @@
-// Inicializar EmailJS
-emailjs.init("8gBv4LP3v5BmBPRnI");
-
-// Função para gerar código de ativação aleatório
-function generateActivationCode() {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let code = "";
-  for (let i = 0; i < 8; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return code;
-}
-
-// Exibe o código na tela
-function showActivationCode(code) {
-  document.getElementById("code").innerText = code;
-  document.getElementById("activationCode").style.display = "block";
-}
-
-// Envio do comprovante + exibição do código de ativação
+// Envio do comprovante
 document.getElementById("comprovanteForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -31,19 +12,21 @@ document.getElementById("comprovanteForm").addEventListener("submit", function (
     return;
   }
 
+  // Usar FileReader para ler o arquivo como base64
   const reader = new FileReader();
   reader.onload = function () {
-    const base64Comprovante = reader.result.split(",")[1];
+    const base64Comprovante = reader.result.split(",")[1]; // Obtém o base64 do arquivo
 
+    // Parâmetros para o template
     const templateParams = {
       nome: nome,
       email: email,
-      comprovante: base64Comprovante,
+      comprovante: base64Comprovante, // Envia o arquivo como base64
       filename: arquivo.name
     };
 
-    emailjs
-      .send("service_vft3aht", "template_1ktrtnp", templateParams)
+    // Enviar usando o EmailJS
+    emailjs.send("service_vft3aht", "template_1ktrtnp", templateParams)
       .then(() => {
         mensagemEl.textContent = "✅ Comprovante enviado com sucesso!";
         const code = generateActivationCode();
@@ -55,5 +38,5 @@ document.getElementById("comprovanteForm").addEventListener("submit", function (
       });
   };
 
-  reader.readAsDataURL(arquivo);
+  reader.readAsDataURL(arquivo); // Lê o arquivo como uma URL base64
 });
