@@ -4,7 +4,7 @@ const mensagem = document.getElementById('mensagem');
 const botao = document.getElementById('submitButton');
 
 form.addEventListener('submit', async function (e) {
-  e.preventDefault();
+  e.preventDefault(); // Evita o redirecionamento padrão
   loading.style.display = 'block';
   mensagem.innerHTML = '';
   botao.disabled = true;
