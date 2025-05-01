@@ -26,7 +26,8 @@
     <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
     <h2>Envie o comprovante de pagamento</h2>
-    <form id="comprovanteForm" action="https://formsubmit.co/ajax/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
+    <form id="comprovanteForm" action="https://formsubmit.co/seu-email@gmail.com" method="POST" enctype="multipart/form-data">
+  <!-- Campos visíveis -->
   <div class="field">
     <label for="nome">Seu Nome:</label>
     <input type="text" id="nome" name="name" required />
@@ -39,16 +40,14 @@
 
   <div class="field">
     <label for="arquivo">Comprovante (imagem ou PDF):</label>
-    <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required multiple />
+    <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required />
   </div>
 
-  <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_template" value="box" />
-  <input type="hidden" name="_autoresponse" value="Recebemos seu comprovante! Em breve entraremos em contato." />
+  <!-- Campos ocultos para configuração do FormSubmit -->
+  <input type="hidden" name="_next" value="https://seu_site.com/obrigado.html">
+  <input type="hidden" name="_captcha" value="false">
 
   <input type="submit" value="📤 Enviar Comprovante" id="submitButton" />
-  <div id="loading" class="loading"></div>
-  <div id="mensagem" class="mensagem-status"></div>
 </form>
 
     <footer>
