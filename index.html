@@ -26,30 +26,49 @@
     <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
     <h2>Envie o comprovante de pagamento</h2>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envio de Comprovante</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Envie seu Comprovante</h1>
+    <p class="subtitulo">Envie seu comprovante de pagamento para confirmação.</p>
+
     <form id="comprovanteForm" action="https://formsubmit.co/ajax/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
       <div class="field">
         <label for="nome">Seu Nome:</label>
         <input type="text" id="nome" name="name" required />
       </div>
-    
+
       <div class="field">
         <label for="email">Seu E-mail:</label>
         <input type="email" id="email" name="email" required />
       </div>
-    
+
       <div class="field">
         <label for="arquivo">Comprovante (imagem ou PDF):</label>
         <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required multiple />
       </div>
-    
+
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="box" />
       <input type="hidden" name="_autoresponse" value="Recebemos seu comprovante! Em breve entraremos em contato." />
-    
+
       <input type="submit" value="📤 Enviar Comprovante" id="submitButton" />
       <div id="loading" class="loading"></div>
       <div id="mensagem" class="mensagem-status"></div>
-    </form>    
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+  
 
     <footer>
       <p>© 2025 Direitos Autorais: Matheus Barbosa da Silva - MBS Technology</p>
