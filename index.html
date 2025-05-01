@@ -51,7 +51,7 @@
     <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
     <h2>Envie o comprovante de pagamento</h2>
-    <form id="comprovanteForm" action="https://formsubmit.co/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
+    <form id="comprovanteForm">
       <div class="field">
         <label for="nome">Seu Nome:</label>
         <input type="text" id="nome" name="name" required />
@@ -67,11 +67,6 @@
         <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required />
       </div>
 
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="box" />
-      <input type="hidden" name="_autoresponse" value="Recebemos seu comprovante! Em breve entraremos em contato." />
-      <input type="hidden" name="_next" value="https://mbstechnology.com/sucesso.html" />
-
       <button type="submit" id="submitButton">📤 Enviar Comprovante</button>
       <div id="loading" class="loading"></div>
       <p id="mensagem" class="mensagem-status"></p>
@@ -82,26 +77,8 @@
     </footer>
   </div>
 
-  <script>
-    const form = document.getElementById('comprovanteForm');
-    const loading = document.getElementById('loading');
-    const mensagem = document.getElementById('mensagem');
-    const botao = document.getElementById('submitButton');
-
-    form.addEventListener('submit', function (e) {
-      loading.style.display = 'block';
-      mensagem.textContent = '';
-      botao.disabled = true;
-    });
-
-    // Detecta se foi redirecionado após envio com sucesso
-    if (window.location.href.includes('sucesso.html')) {
-      document.addEventListener('DOMContentLoaded', () => {
-        mensagem.textContent = '✅ Comprovante enviado com sucesso!';
-        mensagem.style.color = 'green';
-        loading.style.display = 'none';
-      });
-    }
-  </script>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
