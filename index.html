@@ -5,31 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MBS Gerador de Senhas</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .loading {
-      display: none;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(to right, #00c853 0%, #00c853 50%, transparent 50%);
-      background-size: 200% 100%;
-      animation: loadingAnim 1s linear infinite;
-      margin-top: 10px;
-    }
-
-    @keyframes loadingAnim {
-      from {
-        background-position: 200% 0;
-      }
-      to {
-        background-position: -200% 0;
-      }
-    }
-
-    .mensagem-status {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -51,7 +26,7 @@
     <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
     <h2>Envie o comprovante de pagamento</h2>
-    <form id="comprovanteForm" action="https://formsubmit.co/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
+    <form id="comprovanteForm" action="https://formsubmit.co/ajax/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
       <div class="field">
         <label for="nome">Seu Nome:</label>
         <input type="text" id="nome" name="name" required />
@@ -70,11 +45,10 @@
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="box" />
       <input type="hidden" name="_autoresponse" value="Recebemos seu comprovante! Em breve entraremos em contato." />
-      <input type="hidden" name="_next" value="https://mbstechnology.com/sucesso.html" />
 
-      <button type="submit" id="submitButton">📤 Enviar Comprovante</button>
+      <input type="submit" value="📤 Enviar Comprovante" id="submitButton" />
       <div id="loading" class="loading"></div>
-      <p id="mensagem" class="mensagem-status"></p>
+      <div id="mensagem" class="mensagem-status"></div>
     </form>
 
     <footer>
@@ -82,26 +56,6 @@
     </footer>
   </div>
 
-  <script>
-    const form = document.getElementById('comprovanteForm');
-    const loading = document.getElementById('loading');
-    const mensagem = document.getElementById('mensagem');
-    const botao = document.getElementById('submitButton');
-
-    form.addEventListener('submit', function (e) {
-      loading.style.display = 'block';
-      mensagem.textContent = '';
-      botao.disabled = true;
-    });
-
-    // Detecta se foi redirecionado após envio com sucesso
-    if (window.location.href.includes('sucesso.html')) {
-      document.addEventListener('DOMContentLoaded', () => {
-        mensagem.textContent = '✅ Comprovante enviado com sucesso!';
-        mensagem.style.color = 'green';
-        loading.style.display = 'none';
-      });
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
