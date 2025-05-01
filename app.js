@@ -1,4 +1,3 @@
-<script>
   const form = document.getElementById('comprovanteForm');
   const loading = document.getElementById('loading');
   const mensagem = document.getElementById('mensagem');
@@ -34,4 +33,3 @@
     loading.style.display = 'none';
     botao.disabled = false;
   });
-</script>
