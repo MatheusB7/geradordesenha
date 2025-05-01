@@ -51,7 +51,7 @@
     <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
     <h2>Envie o comprovante de pagamento</h2>
-    <form id="comprovanteForm">
+    <form id="comprovanteForm" enctype="multipart/form-data">
       <div class="field">
         <label for="nome">Seu Nome:</label>
         <input type="text" id="nome" name="name" required />
@@ -77,8 +77,8 @@
     </footer>
   </div>
 
-  <!-- EmailJS SDK -->
+  <!-- Script externo -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
