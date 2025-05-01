@@ -30,30 +30,27 @@
 
     <h2>Envie o comprovante de pagamento</h2>
     
-    <form id="comprovanteForm" action="https://formsubmit.co/ajax/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
-  <div class="field">
-    <label for="nome">Seu Nome:</label>
-    <input type="text" id="nome" name="name" required />
-  </div>
+    <form name="comprovanteForm" id="comprovanteForm" method="POST" data-netlify="true" enctype="multipart/form-data">
+      <div class="field">
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" name="name" required />
+      </div>
 
-  <div class="field">
-    <label for="email">Seu E-mail:</label>
-    <input type="email" id="email" name="email" required />
-  </div>
+      <div class="field">
+        <label for="email">Seu E-mail:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
 
-  <div class="field">
-    <label for="arquivo">Comprovante (imagem ou PDF):</label>
-    <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required multiple />
-  </div>
+      <div class="field">
+        <label for="arquivo">Comprovante (imagem ou PDF):</label>
+        <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required multiple />
+      </div>
 
-  <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_template" value="box" />
-  <input type="hidden" name="_autoresponse" value="Recebemos seu comprovante! Em breve entraremos em contato." />
-
-  <input type="submit" value="📤 Enviar Comprovante" id="submitButton" />
-  <div id="loading" class="loading"></div>
-  <div id="mensagem" class="mensagem-status"></div>
-</form>
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="submit" value="📤 Enviar Comprovante" id="submitButton" />
+      <div id="loading" class="loading"></div>
+      <div id="mensagem" class="mensagem-status"></div>
+    </form>
 
     <footer>
       <p>© 2025 Direitos Autorais: Matheus Barbosa da Silva - MBS Technology</p>
@@ -93,7 +90,7 @@
         }
       } catch (error) {
         // Exibe mensagem de erro caso ocorra um problema de conexão
-        mensagem.textContent = '⚠️ Erro de conexão. Verifique sua internet.';
+        mensagem.textContent = '❌ Erro de conexão. Verifique sua internet.';
         mensagem.style.color = 'red';
       }
 
