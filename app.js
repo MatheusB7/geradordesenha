@@ -1,34 +1,35 @@
-emailjs.init('8gBv4LP3v5BmBPRnI'); // Substitua pelo seu próprio ID de usuário
-
 const form = document.getElementById('comprovanteForm');
-const submitButton = document.getElementById('submitButton');
 const loading = document.getElementById('loading');
 const mensagem = document.getElementById('mensagem');
+const botao = document.getElementById('submitButton');
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();  // Impede o envio padrão do formulário
+form.addEventListener('submit', async function (e) {
+  e.preventDefault(); // Evita o redirecionamento padrão
+  loading.style.display = 'block';
+  mensagem.innerHTML = '';
+  botao.disabled = true;
 
-  submitButton.value = 'Enviando...';
-  loading.style.display = 'block';  // Exibe a animação de carregamento
-
-  const serviceID = 'default_service';
-  const templateID = 'template_1ktrtnp';
-
-  // Cria um novo objeto FormData para pegar os dados do formulário
   const formData = new FormData(form);
 
-  emailjs.sendForm(serviceID, templateID, formData)
-    .then(() => {
-      submitButton.value = '📤 Enviar Comprovante';
-      loading.style.display = 'none';  // Oculta a animação de carregamento
-      mensagem.textContent = '✅ Comprovante enviado com sucesso!';
-      mensagem.style.color = 'green';
-      form.reset();  // Reseta o formulário
-    })
-    .catch((err) => {
-      submitButton.value = '📤 Enviar Comprovante';
-      loading.style.display = 'none';
-      mensagem.textContent = '❌ Erro ao enviar o comprovante. Tente novamente.';
-      mensagem.style.color = 'red';
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/kronygm@gmail.com', {
+      method: 'POST',
+      body: formData
     });
+
+    if (response.ok) {
+      mensagem.innerHTML = `<h1>✅ Comprovante enviado com sucesso!</h1><p>Obrigado! Em breve entraremos em contato.</p>`;
+      mensagem.style.color = 'green';
+      form.reset();
+    } else {
+      mensagem.textContent = '❌ Ocorreu um erro. Tente novamente.';
+      mensagem.style.color = 'red';
+    }
+  } catch (error) {
+    mensagem.textContent = '❌ Erro de conexão. Verifique sua internet.';
+    mensagem.style.color = 'red';
+  }
+
+  loading.style.display = 'none';
+  botao.disabled = false;
 });
