@@ -1,12 +1,14 @@
+// Função para copiar o código Pix
 function copyPixCode() {
-  var copyText = document.getElementById("pixCode");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // Para dispositivos móveis
-
-  document.execCommand("copy"); // Copia o conteúdo
-
+  const pixCode = document.getElementById('pixCode');
+  
+  // Copia o código para a área de transferência
+  pixCode.select();
+  pixCode.setSelectionRange(0, 99999); // Para dispositivos móveis
+  document.execCommand('copy');
+  
   // Exibe uma mensagem de confirmação
-  alert("Código Pix copiado: " + copyText.value);
+  alert('Código PIX copiado para a área de transferência!');
 }
 
 const form = document.getElementById('comprovanteForm');
