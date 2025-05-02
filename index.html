@@ -29,6 +29,25 @@
       font-weight: bold;
       margin-top: 10px;
     }
+
+    /* Novo estilo para o botão de download */
+    .download-button {
+      background-color: #00e1ff;
+      color: #000;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #00c0c0;
+    }
   </style>
 </head>
 <body>
@@ -75,11 +94,9 @@
       <p id="mensagem" class="mensagem-status"></p>
     </form>
 
-    <!-- Botão de Download -->
-    <h2>Baixe o Gerador de Senhas</h2>
-    <p>Faça o download do nosso programa para gerar senhas seguras:</p>
-    <a href="https://github.com/matheusbarbosasilva/gerador-de-senhas/releases/download/v1.0/geradordesenha_MBS_Technology.exe" download>
-      <button id="downloadButton">📥 Baixar Gerador de Senhas</button>
+    <!-- Novo botão de download -->
+    <a href="https://github.com/MatheusB7/geradordesenha/releases/download/v1.0/geradordesenha_MBS_Technology.exe" class="download-button" download>
+      🔽 Baixar Gerador de Senhas
     </a>
 
     <footer>
