@@ -1,93 +1,10 @@
-/* Carregamento */
-.loading {
-  display: none;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, #00c853 0%, #00c853 50%, transparent 50%);
-  background-size: 200% 100%;
-  animation: loadingAnim 1s linear infinite;
-  margin-top: 10px;
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0f1116;
+  color: #e0e0e0;
 }
 
-@keyframes loadingAnim {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
-}
-
-/* Mensagens de status */
-.mensagem-status {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Pix */
-.pix-container {
-  background-color: #1b1e25;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 20px;
-  text-align: center;
-  color: #fff;
-  border: 1px solid #00e1ff;
-}
-
-.pix-qr {
-  max-width: 200px;
-  margin: 0 auto;
-  display: block;
-}
-
-.pix-container input {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #444;
-  background-color: #2a2e38;
-  color: #fff;
-  width: 80%;
-  font-size: 16px;
-  text-align: center;
-}
-
-.pix-container button {
-  padding: 10px 20px;
-  background-color: #00e1ff;
-  color: #000;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  font-size: 14px;
-}
-
-.pix-container button:hover {
-  background-color: #00c0c0;
-}
-
-/* Botão de Download */
-#downloadButton {
-  padding: 12px 25px;
-  background-color: #00e1ff;
-  color: #000;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-#downloadButton:hover {
-  background-color: #00c0c0;
-}
-
-/* Contêiner */
 .container {
   max-width: 600px;
   margin: 40px auto;
@@ -97,7 +14,6 @@
   box-shadow: 0 0 20px #00e1ff;
 }
 
-/* Logo */
 .logo {
   width: 150px;
   height: auto;
@@ -173,9 +89,49 @@ input[type="submit"]:hover {
   background-color: #00c0c0;
 }
 
+.loading {
+  display: none;
+  margin: 20px auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #00e1ff;
+  border-radius: 50%;
+  border-top: 5px solid transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mensagem-status {
+  text-align: center;
+  margin-top: 15px;
+}
+
 footer {
   margin-top: 40px;
   text-align: center;
   font-size: 0.8em;
   color: #666;
+}
+
+/* Estilo do botão de download */
+#downloadButton {
+  padding: 12px;
+  background-color: #00e1ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#downloadButton:hover {
+  background-color: #00c0c0;
 }
