@@ -29,72 +29,6 @@
       font-weight: bold;
       margin-top: 10px;
     }
-
-    .pix-container {
-      background-color: #21252b;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .pix-container input {
-      padding: 10px;
-      width: 100%;
-      font-size: 1em;
-      border-radius: 6px;
-      border: 1px solid #444;
-      background-color: #2a2e38;
-      color: #fff;
-    }
-
-    .pix-container button {
-      padding: 12px 20px;
-      background-color: #00e1ff;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 10px;
-    }
-
-    .pix-container button:hover {
-      background-color: #00c0c0;
-    }
-
-    .pix-qr {
-      margin: 10px auto;
-      width: 200px;
-      display: block;
-    }
-
-    .pix-key {
-      color: #00e1ff;
-      text-align: left;
-      font-size: 1.1em;
-      margin-bottom: 25px;
-    }
-
-    /* Estilo do botão de download */
-    #downloadButton {
-      padding: 12px;
-      background-color: #00e1ff;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 20px;
-      width: 100%;
-      font-size: 1.2em;
-    }
-
-    #downloadButton:hover {
-      background-color: #00c0c0;
-    }
   </style>
 </head>
 <body>
@@ -113,12 +47,8 @@
     </div>
 
     <h2>Pagamento via PIX</h2>
-    <div class="pix-container">
-      <img src="qrcode_pix.jpg" alt="QR Code Pix" class="pix-qr" />
-      <p>Clique abaixo para copiar o código Pix:</p>
-      <input type="text" value="https://nubank.com.br/cobrar/193e5i/681152fb-fae1-4111-9b8b-30f5a4e5cf23" id="pixCode" readonly />
-      <button onclick="copyPixCode()">Copiar Código PIX</button>
-    </div>
+    <img src="qrcode_pix.jpg" alt="QR Code PIX" class="qr-code" />
+    <p class="pix-key">Chave PIX: <strong>mbstechnology@gmail.com</strong></p>
 
     <h2>Envie o comprovante de pagamento</h2>
     <form id="comprovanteForm" action="https://formsubmit.co/kronygm@gmail.com" method="POST" enctype="multipart/form-data">
