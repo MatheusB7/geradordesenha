@@ -1,3 +1,14 @@
+function copyPixCode() {
+  var copyText = document.getElementById("pixCode");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+  document.execCommand("copy"); // Copia o conteúdo
+
+  // Exibe uma mensagem de confirmação
+  alert("Código Pix copiado: " + copyText.value);
+}
+
 const form = document.getElementById('comprovanteForm');
 const loading = document.getElementById('loading');
 const mensagem = document.getElementById('mensagem');
