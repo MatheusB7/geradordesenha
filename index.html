@@ -5,6 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MBS Gerador de Senhas</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .loading {
+      display: none;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #00c853 0%, #00c853 50%, transparent 50%);
+      background-size: 200% 100%;
+      animation: loadingAnim 1s linear infinite;
+      margin-top: 10px;
+    }
+
+    @keyframes loadingAnim {
+      from {
+        background-position: 200% 0;
+      }
+      to {
+        background-position: -200% 0;
+      }
+    }
+
+    .mensagem-status {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .pix-container {
+      background-color: #21252b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .pix-container input {
+      padding: 10px;
+      width: 100%;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background-color: #2a2e38;
+      color: #fff;
+    }
+
+    .pix-container button {
+      padding: 12px 20px;
+      background-color: #00e1ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    .pix-container button:hover {
+      background-color: #00c0c0;
+    }
+
+    .pix-qr {
+      margin: 10px auto;
+      width: 200px;
+      display: block;
+    }
+
+    .pix-key {
+      color: #00e1ff;
+      text-align: left;
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+
+    /* Estilo do botão de download */
+    #downloadButton {
+      padding: 12px;
+      background-color: #00e1ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 1.2em;
+    }
+
+    #downloadButton:hover {
+      background-color: #00c0c0;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
