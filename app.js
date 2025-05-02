@@ -3,14 +3,6 @@ const loading = document.getElementById('loading');
 const mensagem = document.getElementById('mensagem');
 const submitButton = document.getElementById('submitButton');
 
-// Função para copiar o código Pix
-function copyPixCode() {
-  const pixCode = document.getElementById('pixCode');
-  pixCode.select();
-  document.execCommand('copy');
-  alert("Código PIX copiado com sucesso!");
-}
-
 // Quando o formulário for enviado
 form.addEventListener('submit', function (e) {
   e.preventDefault(); // Impede o envio padrão
