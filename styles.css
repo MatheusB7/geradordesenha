@@ -1,77 +1,58 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0f1116;
+  color: #e0e0e0;
 }
 
 .container {
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  width: 80%;
   max-width: 600px;
+  margin: 40px auto;
+  background-color: #1b1e25;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00e1ff;
 }
 
 .logo {
-  width: 100px;
-  margin-bottom: 20px;
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 50%;
 }
 
 h1 {
-  color: #333;
+  text-align: center;
+  color: #00e1ff;
 }
 
 .subtitulo {
-  color: #555;
-  font-size: 1.2em;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9em;
+  margin-bottom: 25px;
 }
 
 .premium-box {
-  background-color: #21252b;
-  color: #fff;
+  border: 1px solid #00e1ff;
+  border-radius: 10px;
   padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.pix-container {
-  text-align: center;
-  margin-top: 20px;
-  padding: 20px;
   background-color: #21252b;
-  border-radius: 8px;
+  margin-bottom: 30px;
 }
 
-.pix-container input {
-  width: 80%;
-  padding: 10px;
-  font-size: 14px;
+.qr-code {
+  margin-left: 20px;
   margin-top: 10px;
-  border-radius: 6px;
-  border: 1px solid #444;
-  background-color: #2a2e38;
-  color: #fff;
+  width: 200px;
 }
 
-.pix-container button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #00e1ff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.pix-container button:hover {
-  background-color: #00c0c0;
+.pix-key {
+  color: #00e1ff;
+  text-align: left;
+  font-size: 1.1em;
+  margin-bottom: 25px;
 }
 
 .field {
@@ -79,59 +60,128 @@ h1 {
 }
 
 .field label {
-  display: block;
-  margin-bottom: 5px;
+  font-size: 14px;
+  color: #bbb;
 }
 
 .field input {
-  width: 100%;
   padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2e38;
+  color: #fff;
   font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-#submitButton {
-  background-color: #28a745;
-  color: white;
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 6px;
   width: 100%;
-  border: none;
-  cursor: pointer;
 }
 
-#submitButton:hover {
-  background-color: #218838;
+input[type="submit"] {
+  padding: 12px;
+  background-color: #00e1ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #00c0c0;
 }
 
 .loading {
   display: none;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, #00c853 0%, #00c853 50%, transparent 50%);
-  background-size: 200% 100%;
-  animation: loadingAnim 1s linear infinite;
-  margin-top: 10px;
+  margin: 20px auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #00e1ff;
+  border-radius: 50%;
+  border-top: 5px solid transparent;
+  animation: spin 1s linear infinite;
 }
 
-@keyframes loadingAnim {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .mensagem-status {
-  font-weight: bold;
-  margin-top: 10px;
+  text-align: center;
+  margin-top: 15px;
 }
 
 footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+}
+
+/* Estilos para o botão de download */
+#downloadButton {
+  background-color: #007bff; /* Cor de fundo azul */
+  color: #fff; /* Cor do texto branca */
+  font-size: 18px; /* Tamanho da fonte */
+  padding: 15px 30px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  width: 100%; /* Largura total */
+  border: none; /* Remove borda padrão */
+  cursor: pointer; /* Cursor de clique */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+}
+
+#downloadButton:hover {
+  background-color: #0056b3; /* Cor mais escura quando o botão é focado */
+  transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
+}
+
+#downloadButton:active {
+  transform: scale(1); /* Quando pressionado, o botão volta ao tamanho original */
+}
+
+#downloadButton:focus {
+  outline: none; /* Remove o contorno padrão do botão */
+}
+
+/* Estilo para a seção do Pix */
+.pix-container {
+  background-color: #21252b;
+  padding: 20px;
+  border-radius: 12px;
   margin-top: 30px;
-  font-size: 0.9em;
-  color: #777;
+  text-align: center;
+}
+
+.pix-container input {
+  width: 80%;
+  padding: 10px;
+  background-color: #2a2e38;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.pix-container button {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pix-container button:hover {
+  background-color: #218838;
+}
+
+.pix-qr {
+  margin-top: 20px;
+  max-width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
