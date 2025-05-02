@@ -1,10 +1,93 @@
-body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #0f1116;
-  color: #e0e0e0;
+/* Carregamento */
+.loading {
+  display: none;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #00c853 0%, #00c853 50%, transparent 50%);
+  background-size: 200% 100%;
+  animation: loadingAnim 1s linear infinite;
+  margin-top: 10px;
 }
 
+@keyframes loadingAnim {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Mensagens de status */
+.mensagem-status {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Pix */
+.pix-container {
+  background-color: #1b1e25;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #00e1ff;
+}
+
+.pix-qr {
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
+.pix-container input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2e38;
+  color: #fff;
+  width: 80%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.pix-container button {
+  padding: 10px 20px;
+  background-color: #00e1ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 14px;
+}
+
+.pix-container button:hover {
+  background-color: #00c0c0;
+}
+
+/* Botão de Download */
+#downloadButton {
+  padding: 12px 25px;
+  background-color: #00e1ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+#downloadButton:hover {
+  background-color: #00c0c0;
+}
+
+/* Contêiner */
 .container {
   max-width: 600px;
   margin: 40px auto;
@@ -14,6 +97,7 @@ body {
   box-shadow: 0 0 20px #00e1ff;
 }
 
+/* Logo */
 .logo {
   width: 150px;
   height: auto;
@@ -89,99 +173,9 @@ input[type="submit"]:hover {
   background-color: #00c0c0;
 }
 
-.loading {
-  display: none;
-  margin: 20px auto;
-  width: 50px;
-  height: 50px;
-  border: 5px solid #00e1ff;
-  border-radius: 50%;
-  border-top: 5px solid transparent;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.mensagem-status {
-  text-align: center;
-  margin-top: 15px;
-}
-
 footer {
   margin-top: 40px;
   text-align: center;
   font-size: 0.8em;
   color: #666;
-}
-
-/* Estilos para o botão de download */
-#downloadButton {
-  background-color: #007bff; /* Cor de fundo azul */
-  color: #fff; /* Cor do texto branca */
-  font-size: 18px; /* Tamanho da fonte */
-  padding: 15px 30px; /* Espaçamento interno */
-  border-radius: 8px; /* Bordas arredondadas */
-  width: 100%; /* Largura total */
-  border: none; /* Remove borda padrão */
-  cursor: pointer; /* Cursor de clique */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
-}
-
-#downloadButton:hover {
-  background-color: #0056b3; /* Cor mais escura quando o botão é focado */
-  transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
-}
-
-#downloadButton:active {
-  transform: scale(1); /* Quando pressionado, o botão volta ao tamanho original */
-}
-
-#downloadButton:focus {
-  outline: none; /* Remove o contorno padrão do botão */
-}
-
-/* Estilo para a seção do Pix */
-.pix-container {
-  background-color: #21252b;
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.pix-container input {
-  width: 80%;
-  padding: 10px;
-  background-color: #2a2e38;
-  border: 1px solid #444;
-  border-radius: 6px;
-  color: #fff;
-  font-size: 14px;
-}
-
-.pix-container button {
-  margin-top: 15px;
-  padding: 12px;
-  background-color: #28a745;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.pix-container button:hover {
-  background-color: #218838;
-}
-
-.pix-qr {
-  margin-top: 20px;
-  max-width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
