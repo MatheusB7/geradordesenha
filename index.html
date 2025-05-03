@@ -5,56 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MBS Gerador de Senhas</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .loading {
-      display: none;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(to right, #00c853 0%, #00c853 50%, transparent 50%);
-      background-size: 200% 100%;
-      animation: loadingAnim 1s linear infinite;
-      margin-top: 10px;
-    }
-
-    @keyframes loadingAnim {
-      from {
-        background-position: 200% 0;
-      }
-      to {
-        background-position: -200% 0;
-      }
-    }
-
-    .mensagem-status {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    /* Novo estilo para o botão de download */
-    .download-button {
-      background-color: #00e1ff;
-      color: #000;
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-      transition: background 0.3s;
-    }
-
-    .download-button:hover {
-      background-color: #00c0c0;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
     <img src="geradordesenha_MBS_Technology.png" alt="Logo MBS" class="logo"/>
+    
     <h1>Gerador de Senhas Seguras</h1>
     <h2 class="subtitulo">Tecnologia com segurança — MBS Technology</h2>
+
+    <!-- Botão de Download com animação pulse -->
+    <a href="https://github.com/MatheusB7/geradordesenha/releases/download/v1.0/geradordesenha_MBS_Technology.exe" class="download-button" download>
+      🔽 Baixar Gerador de Senhas
+    </a>
 
     <div class="premium-box">
       <h3>💎 Versão Premium - R$ 9,90/mês</h3>
@@ -86,18 +48,11 @@
         <input type="file" id="arquivo" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required />
       </div>
 
-      <!-- Mantém CAPTCHA desativado -->
       <input type="hidden" name="_captcha" value="false" />
-
       <button type="submit" id="submitButton">📤 Enviar Comprovante</button>
       <div id="loading" class="loading"></div>
       <p id="mensagem" class="mensagem-status"></p>
     </form>
-
-    <!-- Novo botão de download -->
-    <a href="https://github.com/MatheusB7/geradordesenha/releases/download/v1.0/geradordesenha_MBS_Technology.exe" class="download-button" download>
-      🔽 Baixar Gerador de Senhas
-    </a>
 
     <footer>
       <p>© 2025 Direitos Autorais: Matheus Barbosa da Silva - MBS Technology</p>
