@@ -4,7 +4,7 @@ const mensagem = document.getElementById('mensagem');
 const submitButton = document.getElementById('submitButton');
 
 // Nome do projeto
-const nomeDoProjeto = 'Gerador de Senhas MBS';
+const nomeDoProjeto = 'Gerador de Senhas - MBS Technology';
 
 // Cria e adiciona dinamicamente o campo oculto com o nome do projeto
 const campoProjeto = document.createElement('input');
