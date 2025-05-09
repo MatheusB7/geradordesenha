@@ -3,6 +3,16 @@ const loading = document.getElementById('loading');
 const mensagem = document.getElementById('mensagem');
 const submitButton = document.getElementById('submitButton');
 
+// Nome do projeto
+const nomeDoProjeto = 'Gerador de Senhas MBS';
+
+// Cria e adiciona dinamicamente o campo oculto com o nome do projeto
+const campoProjeto = document.createElement('input');
+campoProjeto.type = 'hidden';
+campoProjeto.name = 'Projeto';
+campoProjeto.value = nomeDoProjeto;
+form.appendChild(campoProjeto);
+
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
